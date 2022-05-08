@@ -18,7 +18,9 @@
     width: 100%;
 }
 
-
+.item{
+  border-bottom: 1px solid black;
+}
 .item span{
   margin-left: 1rem;
 }

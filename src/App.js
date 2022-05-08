@@ -13,7 +13,7 @@ const getAlbums = async()=>{
 
 // this function is used to add an album and will get a success response
 const addAlbum = async()=>{
-  await fetch('https://jsonplaceholder.typicode.com/posts', {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',
     body: JSON.stringify({
       title: 'test',
@@ -24,7 +24,11 @@ const addAlbum = async()=>{
       'Content-type': 'application/json; charset=UTF-8',
     },
   });
-  // console.log(response)
+  const data = await response.json()
+  // console.log(data)
+  albums.push(data)
+  console.log(albums)
+  SetAlbums(albums);
 }
 
 // this function will update the album
@@ -57,6 +61,7 @@ useEffect(()=>{
   updateAlbum();
   deleteAlbum();
 },[]);
+
 
   return (
     <Fragment>
